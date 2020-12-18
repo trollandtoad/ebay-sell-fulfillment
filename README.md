@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
 - [AddEvidencePaymentDisputeRequest](docs/Model/AddEvidencePaymentDisputeRequest.md)
 - [AddEvidencePaymentDisputeResponse](docs/Model/AddEvidencePaymentDisputeResponse.md)
 - [Address](docs/Model/Address.md)
+- [AddressWithCC](docs/Model/AddressWithCC.md)
 - [Amount](docs/Model/Amount.md)
 - [AppliedPromotion](docs/Model/AppliedPromotion.md)
 - [Buyer](docs/Model/Buyer.md)

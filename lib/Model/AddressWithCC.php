@@ -1,6 +1,6 @@
 <?php
 /**
- * ExtendedContact
+ * AddressWithCC
  *
  * PHP version 7.2
  *
@@ -33,10 +33,10 @@ use \ArrayAccess;
 use \eBay\Sell\Fulfillment\ObjectSerializer;
 
 /**
- * ExtendedContact Class Doc Comment
+ * AddressWithCC Class Doc Comment
  *
  * @category Class
- * @description This type contains shipping and contact information for a buyer or an eBay shipping partner.
+ * @description This type contains the details of a geographical address.
  * @package  eBay\Sell\Fulfillment
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +44,7 @@ use \eBay\Sell\Fulfillment\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null  
  */
-class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
+class AddressWithCC implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ExtendedContact';
+    protected static $openAPIModelName = 'AddressWithCC';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,11 +61,13 @@ class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'company_name' => 'string',
-        'contact_address' => '\eBay\Sell\Fulfillment\Model\AddressWithCC',
-        'email' => 'string',
-        'full_name' => 'string',
-        'primary_phone' => '\eBay\Sell\Fulfillment\Model\PhoneNumber'
+        'address_line1' => 'string',
+        'address_line2' => 'string',
+        'city' => 'string',
+        'country_code' => 'string',
+        'county' => 'string',
+        'postal_code' => 'string',
+        'state_or_province' => 'string'
     ];
 
     /**
@@ -76,11 +78,13 @@ class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'company_name' => null,
-        'contact_address' => null,
-        'email' => null,
-        'full_name' => null,
-        'primary_phone' => null
+        'address_line1' => null,
+        'address_line2' => null,
+        'city' => null,
+        'country_code' => null,
+        'county' => null,
+        'postal_code' => null,
+        'state_or_province' => null
     ];
 
     /**
@@ -110,11 +114,13 @@ class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'company_name' => 'companyName',
-        'contact_address' => 'contactAddress',
-        'email' => 'email',
-        'full_name' => 'fullName',
-        'primary_phone' => 'primaryPhone'
+        'address_line1' => 'addressLine1',
+        'address_line2' => 'addressLine2',
+        'city' => 'city',
+        'country_code' => 'countryCode',
+        'county' => 'county',
+        'postal_code' => 'postalCode',
+        'state_or_province' => 'stateOrProvince'
     ];
 
     /**
@@ -123,11 +129,13 @@ class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'company_name' => 'setCompanyName',
-        'contact_address' => 'setContactAddress',
-        'email' => 'setEmail',
-        'full_name' => 'setFullName',
-        'primary_phone' => 'setPrimaryPhone'
+        'address_line1' => 'setAddressLine1',
+        'address_line2' => 'setAddressLine2',
+        'city' => 'setCity',
+        'country_code' => 'setCountryCode',
+        'county' => 'setCounty',
+        'postal_code' => 'setPostalCode',
+        'state_or_province' => 'setStateOrProvince'
     ];
 
     /**
@@ -136,11 +144,13 @@ class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'company_name' => 'getCompanyName',
-        'contact_address' => 'getContactAddress',
-        'email' => 'getEmail',
-        'full_name' => 'getFullName',
-        'primary_phone' => 'getPrimaryPhone'
+        'address_line1' => 'getAddressLine1',
+        'address_line2' => 'getAddressLine2',
+        'city' => 'getCity',
+        'country_code' => 'getCountryCode',
+        'county' => 'getCounty',
+        'postal_code' => 'getPostalCode',
+        'state_or_province' => 'getStateOrProvince'
     ];
 
     /**
@@ -203,11 +213,13 @@ class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['company_name'] = $data['company_name'] ?? null;
-        $this->container['contact_address'] = $data['contact_address'] ?? null;
-        $this->container['email'] = $data['email'] ?? null;
-        $this->container['full_name'] = $data['full_name'] ?? null;
-        $this->container['primary_phone'] = $data['primary_phone'] ?? null;
+        $this->container['address_line1'] = $data['address_line1'] ?? null;
+        $this->container['address_line2'] = $data['address_line2'] ?? null;
+        $this->container['city'] = $data['city'] ?? null;
+        $this->container['country_code'] = $data['country_code'] ?? null;
+        $this->container['county'] = $data['county'] ?? null;
+        $this->container['postal_code'] = $data['postal_code'] ?? null;
+        $this->container['state_or_province'] = $data['state_or_province'] ?? null;
     }
 
     /**
@@ -235,121 +247,169 @@ class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets company_name
+     * Gets address_line1
      *
      * @return string|null
      */
-    public function getCompanyName()
+    public function getAddressLine1()
     {
-        return $this->container['company_name'];
+        return $this->container['address_line1'];
     }
 
     /**
-     * Sets company_name
+     * Sets address_line1
      *
-     * @param string|null $company_name The company name associated with the buyer or eBay shipping partner. This field is only returned if defined/applicable to the buyer or eBay shipping partner.
+     * @param string|null $address_line1 The first line of the street address.
      *
      * @return self
      */
-    public function setCompanyName($company_name)
+    public function setAddressLine1($address_line1)
     {
-        $this->container['company_name'] = $company_name;
+        $this->container['address_line1'] = $address_line1;
 
         return $this;
     }
 
     /**
-     * Gets contact_address
-     *
-     * @return \eBay\Sell\Fulfillment\Model\AddressWithCC|null
-     */
-    public function getContactAddress()
-    {
-        return $this->container['contact_address'];
-    }
-
-    /**
-     * Sets contact_address
-     *
-     * @param \eBay\Sell\Fulfillment\Model\AddressWithCC|null $contact_address contact_address
-     *
-     * @return self
-     */
-    public function setContactAddress($contact_address)
-    {
-        $this->container['contact_address'] = $contact_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
+     * Gets address_line2
      *
      * @return string|null
      */
-    public function getEmail()
+    public function getAddressLine2()
     {
-        return $this->container['email'];
+        return $this->container['address_line2'];
     }
 
     /**
-     * Sets email
+     * Sets address_line2
      *
-     * @param string|null $email This field shows the email address of the buyer. The email address of a buyer will be masked 14 days after order creation. This field will still be returned for the order, but it will not contain the buyer's email address, but instead, something like 'Invalid Request'. Note: This field always contains the email address of the buyer even with a Global Shipping Program shipment.
+     * @param string|null $address_line2 The second line of the street address. This field can be used for additional address information, such as a suite or apartment number. This field will be returned if defined for the shipping address.
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setAddressLine2($address_line2)
     {
-        $this->container['email'] = $email;
+        $this->container['address_line2'] = $address_line2;
 
         return $this;
     }
 
     /**
-     * Gets full_name
+     * Gets city
      *
      * @return string|null
      */
-    public function getFullName()
+    public function getCity()
     {
-        return $this->container['full_name'];
+        return $this->container['city'];
     }
 
     /**
-     * Sets full_name
+     * Sets city
      *
-     * @param string|null $full_name The full name of the buyer or eBay shipping partner.
+     * @param string|null $city The city of the shipping destination.
      *
      * @return self
      */
-    public function setFullName($full_name)
+    public function setCity($city)
     {
-        $this->container['full_name'] = $full_name;
+        $this->container['city'] = $city;
 
         return $this;
     }
 
     /**
-     * Gets primary_phone
+     * Gets country_code
      *
-     * @return \eBay\Sell\Fulfillment\Model\PhoneNumber|null
+     * @return string|null
      */
-    public function getPrimaryPhone()
+    public function getCountryCode()
     {
-        return $this->container['primary_phone'];
+        return $this->container['country_code'];
     }
 
     /**
-     * Sets primary_phone
+     * Sets country_code
      *
-     * @param \eBay\Sell\Fulfillment\Model\PhoneNumber|null $primary_phone primary_phone
+     * @param string|null $country_code The country of the shipping destination, represented as a two-letter ISO 3166-1 alpha-2 country code. For example, US represents the United States, and DE represents Germany. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum'>eBay API documentation</a>
      *
      * @return self
      */
-    public function setPrimaryPhone($primary_phone)
+    public function setCountryCode($country_code)
     {
-        $this->container['primary_phone'] = $primary_phone;
+        $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets county
+     *
+     * @return string|null
+     */
+    public function getCounty()
+    {
+        return $this->container['county'];
+    }
+
+    /**
+     * Sets county
+     *
+     * @param string|null $county The county of the shipping destination. Counties typically, but not always, contain multiple cities or towns. This field is returned if known/available.
+     *
+     * @return self
+     */
+    public function setCounty($county)
+    {
+        $this->container['county'] = $county;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_code
+     *
+     * @return string|null
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postal_code'];
+    }
+
+    /**
+     * Sets postal_code
+     *
+     * @param string|null $postal_code The postal code of the shipping destination. Usually referred to as Zip codes in the US. Most countries have postal codes, but not all. The postal code will be returned if applicable.
+     *
+     * @return self
+     */
+    public function setPostalCode($postal_code)
+    {
+        $this->container['postal_code'] = $postal_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_or_province
+     *
+     * @return string|null
+     */
+    public function getStateOrProvince()
+    {
+        return $this->container['state_or_province'];
+    }
+
+    /**
+     * Sets state_or_province
+     *
+     * @param string|null $state_or_province The state or province of the shipping destination. Most countries have states or provinces, but not all. The state or province will be returned if applicable.
+     *
+     * @return self
+     */
+    public function setStateOrProvince($state_or_province)
+    {
+        $this->container['state_or_province'] = $state_or_province;
 
         return $this;
     }
